@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+
+<html>
+    <head>
+        <title>Contact Me</title>
+    </head>
+
+    <body>
+        <div class="video">
+            <iframe width="560" height="315" 
+                src="https://www.youtube.com/embed/hLNR6DZHG1M" 
+                title="15 OWS Video">
+            </iframe>
+        </div>
+
+        <div class="form">
+            <form action="feedback">
+                <h2>Feedback</h2>
+                <p>
+                    <label for="firstname">First Name:</label>
+                    <input type="text" name="fname" placeholder="anonymous" required>
+                </p>
+                <p>
+                    <label for="lastname">Last Name:</label>
+                    <input type="text" name="lname" placeholder="anonymous" required>
+                </p>
+                <p>
+                    <label for="email">Email:</label>
+                    <input type="email" name="mail" placeholder="name@domaincom" required>
+                </p>
+
+                <p>
+                    <label for="date">Date:</label>
+                    <input type="date" name="date">
+                </p>
+
+                <p><b>Do you recommend this website?</b></p>
+                    <p><input type="radio" name="Yes" value="Yes">Yes</p>
+                    <p><input type="radio" name="No" id="No">No</p>
+
+                <p>
+                    <b>What is your favorite Website?<br></b>
+                    <select name="website" size="5">
+                        <option value="Google">Google</option>
+                        <option value="YouTube">YouTube</option>
+                        <option value="Facebook">Facebook</option>
+                        <option value="Twitter">Twitter</option>
+                        <option value="Instagram">Instagram</option>
+                    </select>
+                </p>
+
+                <p>
+                    <b>How would you rate this website?</b><br>
+                    <input type="range" id="rangeInput" name="rangeInput" min="1" max="10" value="5">
+                </p>
+
+                <p>
+                    <b>Additional Comments:<br></b>
+                    <textarea name="comment" rows="20" cols="100" autofocus placeholder="Enter Here"></textarea>
+                </p>
+
+                <p>
+                    <b>Would you like to receive updates from us?</b><br>
+                    <input type="checkbox" name="updates" value="Yes">Yes
+                </p>
+
+                <p>
+                    <input type="reset" value="Reset">
+                </p>
+
+                <p>
+                    <input type="submit" value="Submit">
+                </p>
+
+
+            </form>
+        </div>
+    </body>
+
+
+
+
+</html>
