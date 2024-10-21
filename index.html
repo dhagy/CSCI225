@@ -4,7 +4,10 @@
 
 <head>
     <title>CSCI225 Homepage of Dylan Hagy</title>
-    <link rel="stylesheet" type="text/css" href="css/main.css">
+    <link rel="stylesheet" type="text/css" href="css/home.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Tinos:ital,wght@0,400;0,700;1,400;1,700&display=swap" rel="stylesheet">
 </head>
 
 <body>
@@ -20,25 +23,31 @@
          <hr>
     </div>
 
-    <div class="introduction">
-        <h1>Introduction</h1>
-        <p>
-            Welcome to my homepage! My name is Dylan Hagy and I am a student at the University of South Carolina Aiken. I am currently a sophmore majoring in <em>Computer Science
-            with a concentration in Cyber Security</em>. I am from Richlands, VA and spent <strong>11 years on Active Duty with the United States Air Force</strong>. I am currently 
-            serving in the USAF Reserves and hold the rank of <b>Technical Sergeant/E-6</b>. I have lived in many places all over the globe! Including St. Louis, Korea, England, 
-            and I moved to South Carolina in 2019. I have also deployed to Saudi Arabia twice. I am excited to learn more about web development and I am excited to see what I can create!
-        </p>
-        <img src="img/USAF.jpg" alt="USAF Logo" style="width: 50%;">
-        <hr>
+    <div id="intro-container">
+        <div class="introduction">
+            <h1>Introduction</h1>
+            <p>
+                Welcome to my homepage! My name is Dylan Hagy and I am a student at the University of South Carolina Aiken. I am currently a sophmore majoring in <em>Computer Science
+                with a concentration in Cyber Security</em>. Seasoned combat veteran with over <b> 12 years of distinguished service in the United States Air Force</b>, skilled in tactical 
+                weather forecasting, mission execution, and team leadership. Proven ability to thrive in high-pressure environments, make critical decisions under stress, and deliver 
+                accurate intelligence to support diverse operations, all while strictly adhering to safety procedures and safe practices. Seeking to leverage my disciplined work ethic, 
+                problem-solving prowess, and adaptable nature as I transition into a civilian role. Eager to contribute my leadership, technical proficiency, and strong communication 
+                skills to excel in a dynamic position, driving safe and efficient operations while upholding the highest quality standards. 
+            </p>
+            
+        </div>
+        <div>
+            <img id="usaf-image" src="./img/USAF.jpg " alt="USAF Image">
+        </div>
+
     </div>
 
     <div class="assignment">
-        <h1 id="assignment">Assignment</h1>
+        <h1>Assignment</h1>
         <ol>
             <li><a href="doc/Assignment1.pdf">Assignment1.pdf</a></li>
             <li><a href="ContactMe.html">Contact Me</a></li>
         </ol>
-        <hr>
     </div>
 
     <div class="portfolio">
@@ -63,56 +72,55 @@
                 </ul>
             </li>
         </ol>
-        <hr>
     </div>
 
     <div class="address">
-        <p id="address"><b>Contact Information</b></p>
+        <h1>Contact Information</h1>
         <p>DYLAN M. HAGY, TSGT, USAF Reserves<br>
           5<sup>th</sup> OWF, Shaw AFB, SC</p>
         Email me at:
         <a href="mailto:dhagy@usca.edu">dhagy@usca.edu</a><br>
         LinkedIn: 
         <a href="https://www.linkedin.com/in/dylan-hagy">www.linkedin.com/in/dylan-hagy</a><br>
-        <hr>
     </div>
 
     <div class="schedule">
         <h1>Schedule</h1>
-        <table border="1">
-            <thead>
-                <tr>
-                    <th>Sunday</th>
-                    <th>Monday</th>
-                    <th>Tuesday</th>
-                    <th>Wednesday</th>
-                    <th>Thursday</th>
-                    <th>Friday</th>
-                    <th>Saturday</th>
-                </tr>
-            </thead>
-            <tbody>
-                <tr>
-                    <td></td>
-                    <td>12:00 - 1:15 <br> CSCI 225 Web Development</td>
-                    <td>8:00 - 9:15 <br> CSCI 210 Computer Organization</td>
-                    <td>12:00 - 1:15 <br> CSCI 225 Web Development</td>
-                    <td>8:00 - 9:15 <br> CSCI 210 Computer Organization</td>
-                    <td></td>
-                    <td></td>
-                </tr>
-                <tr>
-                    <td></td>
-                    <td>3:00 - 5:40 <br> CSCI 146 Intro to Algorithmic Design II</td>
-                    <td>12:15 - 1:30 <br> MATH 174 Discrete Mathematics</td>
-                    <td>3:00 - 5:40 <br> CSCI 146 Intro to Algorithmic Design II</td>
-                    <td>12:15 - 1:30 <br> MATH 174 Discrete Mathematics</td>
-                    <td></td>
-                    <td></td>
-                </tr>
-            </tbody>
-        </table>
-        <hr>
+        <div class="schedule-table">
+            <table border="1">
+                <thead>
+                    <tr>
+                        <th>Sunday</th>
+                        <th>Monday</th>
+                        <th>Tuesday</th>
+                        <th>Wednesday</th>
+                        <th>Thursday</th>
+                        <th>Friday</th>
+                        <th>Saturday</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td></td>
+                        <td>12:00 - 1:15 <br> CSCI 225 Web Development</td>
+                        <td>8:00 - 9:15 <br> CSCI 210 Computer Organization</td>
+                        <td>12:00 - 1:15 <br> CSCI 225 Web Development</td>
+                        <td>8:00 - 9:15 <br> CSCI 210 Computer Organization</td>
+                        <td></td>
+                        <td></td>
+                    </tr>
+                    <tr>
+                        <td></td>
+                        <td>3:00 - 5:40 <br> CSCI 146 Intro to Algorithmic Design II</td>
+                        <td>12:15 - 1:30 <br> MATH 174 Discrete Mathematics</td>
+                        <td>3:00 - 5:40 <br> CSCI 146 Intro to Algorithmic Design II</td>
+                        <td>12:15 - 1:30 <br> MATH 174 Discrete Mathematics</td>
+                        <td></td>
+                        <td></td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
     </div>
 
     <footer>
