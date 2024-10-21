@@ -98,6 +98,7 @@ li:first-of-type {
 }
 
 /* 03: Layout */
+
 .container {
     max-width: 1200px;
     margin: 0 auto;
@@ -138,14 +139,14 @@ li:first-of-type {
 /* General table styling */
 table {
     margin: 0 auto;
-    width: 80%; /* or any desired width */
+    width: 80%; 
 }
 
 .parent-container {
     display: flex;
-    justify-content: center; /* centers horizontally */
-    align-items: center; /* centers vertically */
-    height: 100vh; /* or any desired height */
+    justify-content: center; 
+    align-items: center; 
+    height: 100vh; 
 }
 
 /** Style for header and footer**/
