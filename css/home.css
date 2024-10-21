@@ -135,6 +135,19 @@ li:first-of-type {
     background-color: aquamarine;
 }
 
+/* General table styling */
+table {
+    margin: 0 auto;
+    width: 80%; /* or any desired width */
+}
+
+.parent-container {
+    display: flex;
+    justify-content: center; /* centers horizontally */
+    align-items: center; /* centers vertically */
+    height: 100vh; /* or any desired height */
+}
+
 /** Style for header and footer**/
 .header, .footer {
     background-color: var(--primary-color);
