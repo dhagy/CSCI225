@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+
+<html>
+
+<head>
+    <title>Conversion</title>
+</head>
+
+<body>
+    <h1>Unit Conversion Calculator - Length</h1>
+    <div>
+        <input type="number" id="inputValue" placeholder="Enter value">
+        <select id="inputUnit">
+            <option value="foot">foot</option>
+            <option value="inch">inch</option>
+            <option value="meter">meter</option>
+        </select>
+
+        =
+
+        <input type="text" id="outputValue" placeholder="Converted value">
+        <select id="outputUnit">
+            <option value="foot">foot</option>
+            <option value="inch">inch</option>
+            <option value="meter">meter</option>
+        </select>
+
+        <button id="convertButton">Convert</button>
+
+    </div>
+
+    <script>
+        // Event listener
+        document.getElementById("convertButton").addEventListener("click", convert)
+
+        function convert() {
+            const inputValue = parseFloat(document.getElementById("inputValue").value);
+            const inputUnit = document.getElementById("inputUnit").value;
+            const outputUnit = document.getElementById("outputUnit").value;
+            let result;
+
+            // Logic for conversion
+            if (inputUnit === outputUnit) {
+                result = inputValue; // No conversion is needed
+            } else if (inputUnit === "foot" && outputUnit === "inch") {
+                result = inputValue * 12;
+            } else if (inputUnit === "foot" && outputUnit === "meter") {
+                result = inputValue * 0.3048;
+            } else if (inputUnit === "inch" && outputUnit === "foot") {
+                result = inputValue / 12;
+            } else if (inputUnit === "inch" && outputUnit === "meter") {
+                result = inputValue * 0.0254;
+            } else if (inputUnit === "meter" && outputUnit === "foot") {
+                result = inputValue / 0.3048;
+            } else if (inputUnit === "meter" && outputUnit === "inch") {
+                result = inputValue / 0.0254;
+            }
+
+            document.getElementById("outputValue").value = result.toFixed(4);
+        }
+    </script>
+
+</body>
+
+</html>
