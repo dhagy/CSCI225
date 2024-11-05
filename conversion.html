@@ -51,9 +51,9 @@
             } else if (inputUnit === "inch" && outputUnit === "meter") {
                 result = inputValue * 0.0254;
             } else if (inputUnit === "meter" && outputUnit === "foot") {
-                result = inputValue / 0.3048;
+                result = inputValue * 3.28;
             } else if (inputUnit === "meter" && outputUnit === "inch") {
-                result = inputValue / 0.0254;
+                result = inputValue * 39.37;
             }
 
             document.getElementById("outputValue").value = result.toFixed(4);
