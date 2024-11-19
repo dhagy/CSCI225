@@ -1,0 +1,206 @@
+<!DOCTYPE html>
+
+<html>
+
+<head>
+    <style>
+        /* General Styling */
+        body {
+            margin: 0;
+            font-family: Arial, sans-serif;
+            background-color: black; /* Black background for gallery */
+            color: white; /* White text for better contrast */
+        }
+
+        .gallery {
+            position: relative;
+            width: 100%;
+            height: 100vh; /* Full viewport height */
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            overflow: hidden; /* Hide images outside the container */
+        }
+
+        .gallery img {
+            position: absolute;
+            max-width: 100%;
+            max-height: 100%;
+            object-fit: contain; /* Ensure images scale proportionally */
+            display: none; /* Hide all images initially */
+            transition: opacity 0.5s ease-in-out; /* Smooth fade effect */
+        }
+
+        .gallery img.active {
+            display: block;
+            opacity: 1; /* Show active image */
+        }
+
+        /* Left and Right Navigation Arrows */
+        .arrow {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            font-size: 3rem;
+            color: white;
+            background: rgba(0, 0, 0, 0.5); /* Semi-transparent background */
+            padding: 15px;
+            border-radius: 50%;
+            cursor: pointer;
+            z-index: 2;
+            display: none; /* Arrows hidden by default */
+        }
+
+        .arrow.left {
+            left: 20px; /* Position left arrow */
+        }
+
+        .arrow.right {
+            right: 20px; /* Position right arrow */
+        }
+
+        .gallery:hover .arrow {
+            display: block; /* Show arrows on hover */
+        }
+
+        .arrow:hover {
+            background: rgba(255, 255, 255, 0.7); /* Lighten background on hover */
+            color: black; /* Change arrow color on hover */
+        }
+
+        /* Description Box Styling */
+        .description {
+            position: absolute;
+            bottom: 20px;
+            left: 50%;
+            transform: translateX(-50%);
+            background: rgba(0, 0, 0, 0.7); /* Semi-transparent black background */
+            padding: 10px 20px;
+            border-radius: 5px;
+            font-size: 1rem;
+            text-align: center;
+            color: white;
+        }
+
+        /* Dots Navigation Styling */
+        .dots {
+            position: absolute;
+            bottom: 50px;
+            left: 50%;
+            transform: translateX(-50%);
+            display: flex;
+            gap: 10px;
+        }
+
+        .dots .dot {
+            width: 12px;
+            height: 12px;
+            border-radius: 50%;
+            background: white;
+            opacity: 0.5;
+            cursor: pointer;
+            transition: background 0.3s ease, opacity 0.3s ease;
+        }
+
+        .dots .dot.active {
+            background: blue; /* Highlight active dot */
+            opacity: 1;
+        }
+
+        .dots .dot:hover {
+            background: rgb(4, 4, 245); /* Change color when hovering over dots */
+        }
+    </style>
+</head>
+
+<body>
+    <div class="gallery">
+        <div class="arrow left">&lt;</div>
+        <div class="arrow right">&gt;</div>
+
+        <img src="img/F-16_June_2008.jpg" alt="F-16" class="active">
+        <img src="img/KC 135.jpg" alt="KC-135">
+        <img src="img/Scott AFB.avif" alt="Scott AFB">
+        <img src="img/05142019 SOW.jpg" alt="05142019 SOW">
+        <img src="img/tmq53.avif" alt="TMQ53">
+
+        <div class="description">F-16 Fighting Falcon - June 2008</div>
+        <div class="dots">
+            <div class="dot active"></div>
+            <div class="dot"></div>
+            <div class="dot"></div>
+            <div class="dot"></div>
+            <div class="dot"></div>
+        </div>
+    </div>
+
+    <script>
+        // Select all images in the gallery
+        var imgList = document.querySelectorAll('.gallery img');
+        var leftArrow = document.querySelector('.arrow.left');
+        var rightArrow = document.querySelector('.arrow.right');
+        var dots = document.querySelectorAll('.dots .dot');
+        var description = document.querySelector('.description');
+
+        var index = 0; // Current image index
+
+        // Descriptions for images
+        var descriptions = [
+            "F-16 Fighting Falcon - June 2008",
+            "KC-135 Stratotanker",
+            "Scott Air Force Base",
+            "Special Operations Wing - May 2019",
+            "TMQ-53 Tactical System"
+        ];
+
+        // Function to update the visibility of images and other elements
+        function updateGallery() {
+            // Hide all images
+            imgList.forEach((img, i) => {
+                img.classList.remove('active');
+            });
+            // Show the current image
+            imgList[index].classList.add('active');
+
+            // Update description
+            description.textContent = descriptions[index];
+
+            // Update dots
+            dots.forEach((dot, i) => {
+                dot.classList.toggle('active', i === index);
+            });
+        }
+
+        // Function to go to the next image
+        function nextImage() {
+            index = (index + 1) % imgList.length; // Cycle to the next index
+            updateGallery();
+        }
+
+        // Function to go to the previous image
+        function prevImage() {
+            index = (index - 1 + imgList.length) % imgList.length; // Cycle to the previous index
+            updateGallery();
+        }
+
+        // Add click event listeners for arrows
+        leftArrow.addEventListener('click', prevImage);
+        rightArrow.addEventListener('click', nextImage);
+
+        // Add click event listeners for dots
+        dots.forEach((dot, dotIndex) => {
+            dot.addEventListener('click', () => {
+                index = dotIndex;
+                updateGallery();
+            });
+        });
+
+        // Automatic image rotation every 3 seconds
+        setInterval(nextImage, 10000);
+
+        // Initialize the gallery
+        updateGallery();
+    </script>
+</body>
+
+</html>
