@@ -46,7 +46,6 @@
         let currentIndex = 0;
 
         function updateGallery(index) {
-            // Ensure the current image, description, and dot are active
             images.forEach((img, i) => img.classList.toggle('active', i === index));
             descriptions.forEach((desc, i) => desc.classList.toggle('active', i === index));
             dots.forEach((dot, i) => dot.classList.toggle('active', i === index));
