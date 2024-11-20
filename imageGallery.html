@@ -1,87 +1,70 @@
 <!DOCTYPE html>
-
-<html>
-
+<html lang="en">
 <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Image Gallery</title>
-    <style>
-        /* General Styling */
-        body {
-            margin: 0;
-            font-family: Arial, sans-serif;
-            background-color: black; /* Black background for gallery */
-            color: white; /* White text for better contrast */
-        }
-
-        .gallery {
-            position: relative;
-            width: 100%;
-            height: 100vh; /* Full viewport height */
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            overflow: hidden; /* Hide images outside the container */
-        }
-
-        .gallery img {
-            position: absolute;
-            max-width: 100%;
-            max-height: 100%;
-            object-fit: contain; /* Ensure images scale proportionally */
-            display: none; /* Hide all images initially */
-            transition: opacity 0.5s ease-in-out; /* Smooth fade effect */
-        }
-
-        .gallery img.active {
-            display: block;
-            opacity: 1; /* Show active image */
-        }
-    </style>
- 
+    <link rel="stylesheet" href="css/gallery.css">
 </head>
 
 <body>
-    <div class="gallery">
-        <h1>Image Gallery</h1>
-        <img src="img/F-16_June_2008.jpg" alt="F-16" class="active">
-        <img src="img/KC 135.jpg" alt="KC-135">
-        <img src="img/Scott AFB.avif" alt="Scott AFB">
-        <img src="img/05142019 SOW.jpg" alt="05142019 SOW">
-        <img src="img/tmq53.avif" alt="TMQ53">
+    <div class="gallery-container">
+        <div class="gallery">
+            <h1>Image Gallery</h1>
+            <img src="img/F-16_June_2008.jpg" alt="Description 1" class="gallery-image active">
+            <div class="description active">F-16 June 2008</div>
+
+            <img src="img/KC 135.jpg" alt="Description 2" class="gallery-image">
+            <div class="description">KC-135</div>
+
+            <img src="img/Scott AFB.avif" alt="Description 3" class="gallery-image">
+            <div class="description">Scott AFB</div>
+
+            <img src="img/05142019 SOW.jpg" alt="Description 4" class="gallery-image">
+            <div class="description">Special Operations Weather</div>
+
+            <img src="img/tmq53.avif" alt="Description 5" class="gallery-image">
+            <div class="description">TMQ-53 Tactical Weather Sensor</div>
+        </div>
+
+        <div class="nav left" onclick="changeImage(-1)">&#10094;</div>
+        <div class="nav right" onclick="changeImage(1)">&#10095;</div>
+
+        <div class="dots">
+            <span class="dot active" onclick="currentSlide(0)"></span>
+            <span class="dot" onclick="currentSlide(1)"></span>
+            <span class="dot" onclick="currentSlide(2)"></span>
+            <span class="dot" onclick="currentSlide(3)"></span>
+            <span class="dot" onclick="currentSlide(4)"></span>
+        </div>
     </div>
 
     <script>
-        // Select all images in the gallery
-        var imgList = document.querySelectorAll('.gallery img');
-        var index = 0; // Current image index
-    
-        // Function to update the visibility of images
-        function updateGallery() {
-            // Hide all images
-            imgList.forEach((img, i) => {
-                img.classList.remove('active');
-            });
-            // Show the current image
-            imgList[index].classList.add('active');
+        const images = document.querySelectorAll('.gallery-image');
+        const descriptions = document.querySelectorAll('.description');
+        const dots = document.querySelectorAll('.dot');
+        let currentIndex = 0;
+
+        function updateGallery(index) {
+            // Ensure the current image, description, and dot are active
+            images.forEach((img, i) => img.classList.toggle('active', i === index));
+            descriptions.forEach((desc, i) => desc.classList.toggle('active', i === index));
+            dots.forEach((dot, i) => dot.classList.toggle('active', i === index));
         }
-    
-        // Function to change to the next image
-        function changePic() {
-            index = (index + 1) % imgList.length; // Cycle to the next index
-            updateGallery();
+
+        function changeImage(direction) {
+            currentIndex = (currentIndex + direction + images.length) % images.length;
+            updateGallery(currentIndex);
         }
-    
-        // Add event listeners to images for manual cycling
-        imgList.forEach((img) => {
-            img.addEventListener('click', changePic);
-        });
-    
-        // Automatic image rotation every 3 seconds
-        setInterval(changePic, 3000);
-    
-        // Initialize the gallery by showing the first image
-        updateGallery();
-    </script> 
+
+        function currentSlide(index) {
+            currentIndex = index;
+            updateGallery(currentIndex);
+        }
+
+        // Automatic rotation every 8 seconds
+        setInterval(() => changeImage(1), 8000);
+    </script>
 </body>
 
 </html>

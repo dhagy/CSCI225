@@ -1,0 +1,88 @@
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    background-color: #000;
+    color: #fff;
+    text-align: center;
+}
+
+.gallery-container {
+    position: relative;
+    max-width: 1200px; /* Adjust to allow larger images */
+    margin: auto;
+    overflow: hidden;
+}
+
+.gallery {
+    position: relative;
+}
+
+.gallery h1 {
+    margin-bottom: 20px;
+}
+
+.gallery-image {
+    width: 100%;
+    height: auto; /* Ensure aspect ratio is maintained */
+    max-height: 700px; /* Allow images to be larger */
+    object-fit: contain; /* Maintain proportions */
+    display: none;
+}
+
+.gallery-image.active {
+    display: block;
+}
+
+.description {
+    position: relative;
+    margin-top: 10px;
+    font-size: 1.2rem;
+    display: none;
+}
+
+.description.active {
+    display: block;
+}
+
+.nav {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    color: white;
+    font-size: 3rem;
+    padding: 10px;
+    cursor: pointer;
+    background: rgba(0, 0, 0, 0.5);
+    border-radius: 50%;
+    user-select: none;
+    z-index: 2;
+}
+
+.nav.left {
+    left: 20px;
+}
+
+.nav.right {
+    right: 20px;
+}
+
+.dots {
+    text-align: center;
+    margin-top: 20px;
+    position: relative;
+    margin-bottom: 20px; /* Add space below the dots */
+}
+
+.dot {
+    height: 15px;
+    width: 15px;
+    margin: 0 5px;
+    background-color: #bbb;
+    border-radius: 50%;
+    display: inline-block;
+    cursor: pointer;
+}
+
+.dot.active {
+    background-color: #007bff;
+}
