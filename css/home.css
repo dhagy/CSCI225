@@ -29,9 +29,10 @@
 /* General Reset */
 body {
     background-image: url(../img/USAF_gray_background.jfif);
-    background-size: 70%;
+    background-size: cover;
     background-position: center;
     background-attachment: fixed;
+    background-repeat: no-repeat;
     color: var(--font-color);
     font-family: Arial, sans-serif;
     line-height: 1.6;
